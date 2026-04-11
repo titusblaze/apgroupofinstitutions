@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+
+    <script>
+      (function () {
+        var segmentCount = 1;
+
+        var location = window.location;
+        var l = location.pathname.split('/').slice(1);
+
+        var newUrl =
+          location.protocol +
+          '//' +
+          location.hostname +
+          (location.port ? ':' + location.port : '') +
+          '/' +
+          l.slice(0, segmentCount).join('/') +
+          '/?/' +
+          l.slice(segmentCount).join('/') +
+          location.search +
+          location.hash;
+
+        window.location.replace(newUrl);
+      })();
+    </script>
+  </head>
+
+  <body>
+    <h3 style="text-align:center; margin-top:50px;">
+      Redirecting...
+    </h3>
+  </body>
+</html>
