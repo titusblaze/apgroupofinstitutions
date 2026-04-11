@@ -39,7 +39,7 @@ const CoursesOffered = () => {
       title: "Hotel Management",
       image: "https://images.unsplash.com/photo-1540304453527-62f979142a17?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGhvdGVsJTIwbWFuYWdlbWVudHxlbnwwfHwwfHx8MA%3D%3D",
       desc: "Develop hospitality, food service, and management skills for the hotel industry.",
-      path: "/hotel-management",
+      path: "/catering",
     },
     {
       title: "Office Automation",
