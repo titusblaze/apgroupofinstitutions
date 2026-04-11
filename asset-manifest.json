@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/titusblaze/apgroupofinstitutions.git/static/css/main.f32f4997.css",
+    "main.js": "/titusblaze/apgroupofinstitutions.git/static/js/main.0324b344.js",
+    "static/media/about-banner.jpg": "/titusblaze/apgroupofinstitutions.git/static/media/about-banner.a340184f80d92d2b6ecb.jpg",
+    "static/media/logo512.png": "/titusblaze/apgroupofinstitutions.git/static/media/logo512.8aa5894d3ef92783bbf1.png",
+    "static/media/chairman2.jpg": "/titusblaze/apgroupofinstitutions.git/static/media/chairman2.1c197ceacccdf95cf1e3.jpg",
+    "static/media/chairman1.jpg": "/titusblaze/apgroupofinstitutions.git/static/media/chairman1.052a4f2b61f4a5038641.jpg",
+    "index.html": "/titusblaze/apgroupofinstitutions.git/index.html",
+    "main.f32f4997.css.map": "/titusblaze/apgroupofinstitutions.git/static/css/main.f32f4997.css.map",
+    "main.0324b344.js.map": "/titusblaze/apgroupofinstitutions.git/static/js/main.0324b344.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f32f4997.css",
+    "static/js/main.0324b344.js"
+  ]
+}
