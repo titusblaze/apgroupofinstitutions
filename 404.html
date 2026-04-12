@@ -7,22 +7,20 @@
     <script>
       (function () {
         var segmentCount = 1;
-
-        var location = window.location;
-        var l = location.pathname.split('/').slice(1);
+        var l = window.location;
 
         var newUrl =
-          location.protocol +
-          '//' +
-          location.hostname +
-          (location.port ? ':' + location.port : '') +
-          '/' +
-          l.slice(0, segmentCount).join('/') +
-          '/?/' +
-          l.slice(segmentCount).join('/') +
-          location.search +
-          location.hash;
+          l.protocol +
+          "//" +
+          l.hostname +
+          (l.port ? ":" + l.port : "") +
+          l.pathname.split("/").slice(0, 1 + segmentCount).join("/") +
+          "/?/" +
+          l.pathname.slice(1).split("/").slice(segmentCount).join("/") +
+          (l.search ? "&" + l.search.slice(1) : "") +
+          l.hash;
 
+        sessionStorage.redirect = newUrl;
         window.location.replace(newUrl);
       })();
     </script>
