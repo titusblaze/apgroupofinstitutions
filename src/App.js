@@ -44,7 +44,7 @@ export default function App() {
   if (loading) return <Loader />;
 
   return (
-    <Router basename="/apgroupofinstitutions">
+    <Router basename={process.env.PUBLIC_URL}>
       <ScrollToTop /> {/* ✅ MUST be here */}
 
       <Header />
