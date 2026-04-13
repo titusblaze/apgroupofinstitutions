@@ -1,16 +1,20 @@
+import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
-import React from "react";
 
-// 🔥 SCROLL EFFECT
+const NewsScroller = () => {
+  const [hideOffset, setHideOffset] = useState(0);
+  const [lastScroll, setLastScroll] = useState(0);
+
+  // 🔥 SCROLL HIDE EFFECT
   useEffect(() => {
     const handleScroll = () => {
       const currentScroll = window.scrollY;
 
       if (Math.abs(currentScroll - lastScroll) > 10) {
         if (currentScroll > lastScroll) {
-          setHideOffset(-60); // ⬇️ move up
+          setHideOffset(-60); // ⬇️ hide
         } else {
-          setHideOffset(0); // ⬆️ move down
+          setHideOffset(0); // ⬆️ show
         }
         setLastScroll(currentScroll);
       }
@@ -20,7 +24,15 @@ import React from "react";
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScroll]);
 
-const NewsScroller = () => {
+  const textStyle = {
+    display: "inline-block",
+    fontSize: { xs: "14px", md: "18px" },
+    fontWeight: 600,
+    fontStyle: "italic",
+    pr: 5,
+    color: "#ffffff",
+  };
+
   return (
     <Box
       sx={{
@@ -29,7 +41,6 @@ const NewsScroller = () => {
         width: "100%",
         height: { xs: "40px", md: "50px" },
         overflow: "hidden",
-        backgroundColor: "transparent",
         display: "flex",
         alignItems: "center",
         transform: {
@@ -38,52 +49,49 @@ const NewsScroller = () => {
         },
         transition: "transform 0.3s ease",
         zIndex: 10,
+
+        // 🔥 Fade edges (modern look)
+        maskImage:
+          "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+        WebkitMaskImage:
+          "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
       }}
     >
       <Box
         sx={{
-          display: "inline-block",
+          display: "flex",
           whiteSpace: "nowrap",
-          animation: "scroll-left 30s linear infinite",
+          animation: "scroll-left 20s linear infinite",
 
-          // 🔥 Pause on hover
           "&:hover": {
             animationPlayState: "paused",
             cursor: "pointer",
           },
 
-          "& > *": {
-            flexShrink: 0,
-          },
-
-          // ✅ ADD THIS
           "@keyframes scroll-left": {
             "0%": {
-              transform: "translateX(100%)",
+              transform: "translateX(0)",
             },
             "100%": {
-              transform: "translateX(-100%)",
+              transform: "translateX(-50%)",
             },
           },
         }}
       >
-        <Typography
-          sx={{
-            display: "inline-block",
-            fontSize: { xs: "14px", md: "18px" },
-            fontWeight: 600,
-            fontStyle: "italic",
-            pr: 5,
-            color: "#ffffff",
-          }}
-        >
+        {/* 🔁 Content 1 */}
+        <Typography sx={textStyle}>
           🎓 Admission Open 2026–2027 Batch &nbsp;&nbsp;&nbsp;
           💉 Nursing Courses Available &nbsp;&nbsp;&nbsp;
           🏥 Limited Seats – Apply Now! &nbsp;&nbsp;&nbsp;
           📞 Contact: +91 97512 70576 &nbsp;&nbsp;&nbsp;
-          {/* Duplicate */}
-            🎓 Admission Open 2026–2027 Batch &nbsp;&nbsp;&nbsp;   
-            💉 Nursing Courses Available &nbsp;&nbsp;&nbsp;
+        </Typography>
+
+        {/* 🔁 Content 2 (duplicate for seamless loop) */}
+        <Typography sx={textStyle}>
+          🎓 Admission Open 2026–2027 Batch &nbsp;&nbsp;&nbsp;
+          💉 Nursing Courses Available &nbsp;&nbsp;&nbsp;
+          🏥 Limited Seats – Apply Now! &nbsp;&nbsp;&nbsp;
+          📞 Contact: +91 97512 70576 &nbsp;&nbsp;&nbsp;
         </Typography>
       </Box>
     </Box>

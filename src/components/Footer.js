@@ -85,7 +85,7 @@ const Footer = () => {
         </Grid>
 
         {/* ADDRESS + MAP */}
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12} md={3} sx={{width:'300px'}}>
             <Typography variant="h6" fontWeight="bold" gutterBottom>
                 Address
             </Typography>
@@ -124,7 +124,7 @@ const Footer = () => {
         </Grid>
 
         {/* CONTACT */}
-        <Grid item xs={12} md={2.5}>
+        <Grid item xs={12} md={2.5} sx={{width:'200px'}}>
           <Typography variant="h6" fontWeight="bold" gutterBottom>
             Contact
           </Typography>
@@ -163,7 +163,7 @@ const Footer = () => {
         </Grid>
 
         {/* COURSES */}
-        <Grid item xs={12} md={2.5}>
+        <Grid item xs={12} md={2.5} sx={{width:'200px'}}>
           <Typography variant="h6" fontWeight="bold" gutterBottom>
             Courses
           </Typography>
