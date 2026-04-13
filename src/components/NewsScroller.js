@@ -1,18 +1,42 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 
+// 🔥 SCROLL EFFECT
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+
+      if (Math.abs(currentScroll - lastScroll) > 10) {
+        if (currentScroll > lastScroll) {
+          setHideOffset(-60); // ⬇️ move up
+        } else {
+          setHideOffset(0); // ⬆️ move down
+        }
+        setLastScroll(currentScroll);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScroll]);
+
 const NewsScroller = () => {
   return (
     <Box
       sx={{
         position: "fixed",
-        top: { xs: 65, md: 130 },
+        top: { xs: 60, md: 125 },
         width: "100%",
         height: { xs: "40px", md: "50px" },
         overflow: "hidden",
         backgroundColor: "transparent",
         display: "flex",
         alignItems: "center",
+        transform: {
+          md: `translateY(${hideOffset}px)`,
+          xs: "none",
+        },
+        transition: "transform 0.3s ease",
         zIndex: 10,
       }}
     >

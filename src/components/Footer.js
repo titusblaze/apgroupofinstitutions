@@ -19,7 +19,29 @@ import {
   WhatsApp, 
   LocationOn,
 } from "@mui/icons-material";
+import { NavLink } from "react-router-dom"; // ✅ for active link styling
 import { Link as RouterLink } from "react-router-dom"; // ✅ alias
+
+const linkStyle = {
+  textDecoration: "none",
+  color: "#ccc",
+  fontSize: "14px",
+  transition: "all 0.3s ease",
+  padding: "4px 8px",
+  borderRadius: "6px",
+
+  "&:hover": {
+    color: "#fff",
+    background: "rgba(255,255,255,0.1)",
+  },
+
+  "&.active": {
+    color: "#fff",
+    background: "linear-gradient(90deg, #2563eb, #1e40af)",
+    fontWeight: "bold",
+  },
+};
+
 const Footer = () => {
   return (
     <Box
@@ -147,11 +169,29 @@ const Footer = () => {
           </Typography>
 
           <Stack spacing={1}>
-            <Link component={RouterLink} to="/anm">ANM Nursing</Link>
-            <Link component={RouterLink} to="/dmlt">DMLT</Link>
-            <Link component={RouterLink} to="/gda">General Duty Assistant</Link>
-            <Link component={RouterLink} to="/hotel-management">Hotel Management</Link>
-            <Link component={RouterLink} to="/office-automation">Office Automation</Link>
+            <Link
+              component={NavLink}
+              to="/anm"
+              sx={linkStyle}
+            >
+              ANM Nursing
+            </Link>
+
+            <Link component={NavLink} to="/dmlt" sx={linkStyle}>
+              DMLT
+            </Link>
+
+            <Link component={NavLink} to="/gda" sx={linkStyle}>
+              General Duty Assistant
+            </Link>
+
+            <Link component={NavLink} to="/hotel-management" sx={linkStyle}>
+              Hotel Management
+            </Link>
+
+            <Link component={NavLink} to="/office-automation" sx={linkStyle}>
+              Office Automation
+            </Link>
           </Stack>
         </Grid>
 
