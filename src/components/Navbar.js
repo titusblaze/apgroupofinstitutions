@@ -139,7 +139,10 @@ const handleSubClose = () => {
         marginTop: { xs: "0"}, // header space
         position: "fixed",
         top: { xs: 0, md: "60px" }, // header space
-        transform: `translateY(${hideOffset}px)`, // 🔥 movement
+        transform: {
+          md: `translateY(${hideOffset}px)`,
+          xs: "none",
+        },
         transition: "transform 0.3s ease",
         zIndex: 1200,
       }}
