@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/apgroupofinstitutions/static/css/main.f32f4997.css",
-    "main.js": "/apgroupofinstitutions/static/js/main.00e5a282.js",
+    "main.js": "/apgroupofinstitutions/static/js/main.1d0db868.js",
     "static/media/about-banner.jpg": "/apgroupofinstitutions/static/media/about-banner.a340184f80d92d2b6ecb.jpg",
     "static/media/logo512.png": "/apgroupofinstitutions/static/media/logo512.8aa5894d3ef92783bbf1.png",
     "static/media/chairman2.jpg": "/apgroupofinstitutions/static/media/chairman2.1c197ceacccdf95cf1e3.jpg",
     "static/media/chairman1.jpg": "/apgroupofinstitutions/static/media/chairman1.052a4f2b61f4a5038641.jpg",
     "index.html": "/apgroupofinstitutions/index.html",
     "main.f32f4997.css.map": "/apgroupofinstitutions/static/css/main.f32f4997.css.map",
-    "main.00e5a282.js.map": "/apgroupofinstitutions/static/js/main.00e5a282.js.map"
+    "main.1d0db868.js.map": "/apgroupofinstitutions/static/js/main.1d0db868.js.map"
   },
   "entrypoints": [
     "static/css/main.f32f4997.css",
-    "static/js/main.00e5a282.js"
+    "static/js/main.1d0db868.js"
   ]
 }
