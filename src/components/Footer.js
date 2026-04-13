@@ -19,7 +19,7 @@ import {
   WhatsApp, 
   LocationOn,
 } from "@mui/icons-material";
-
+import { Link as RouterLink } from "react-router-dom"; // ✅ alias
 const Footer = () => {
   return (
     <Box
@@ -147,21 +147,11 @@ const Footer = () => {
           </Typography>
 
           <Stack spacing={1}>
-            <Link to="/anm">
-              ANM Nursing
-            </Link>
-            <Link to="/dmlt">
-              DMLT
-            </Link>
-            <Link to="/gda">
-              General Duty Assistant
-            </Link>
-            <Link to="/hotel-management">
-              Hotel Management
-            </Link>
-            <Link to="/office-automation">
-              Office Automation
-            </Link>
+            <Link component={RouterLink} to="/anm">ANM Nursing</Link>
+            <Link component={RouterLink} to="/dmlt">DMLT</Link>
+            <Link component={RouterLink} to="/gda">General Duty Assistant</Link>
+            <Link component={RouterLink} to="/hotel-management">Hotel Management</Link>
+            <Link component={RouterLink} to="/office-automation">Office Automation</Link>
           </Stack>
         </Grid>
 
