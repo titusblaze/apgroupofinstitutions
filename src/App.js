@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
@@ -44,7 +44,7 @@ export default function App() {
   if (loading) return <Loader />;
 
   return (
-    <Router basename="/apgroupofinstitutions">
+    <Router>
       <ScrollToTop /> {/* ✅ MUST be here */}
 
       <Header />

@@ -19,6 +19,7 @@ import {
   WhatsApp, 
   LocationOn,
 } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -147,19 +148,19 @@ const Footer = () => {
           </Typography>
 
           <Stack spacing={1}>
-            <Link href="/anm" color="inherit" underline="hover">
+            <Link to="/anm">
               ANM Nursing
             </Link>
-            <Link href="/dmlt" color="inherit" underline="hover">
+            <Link to="/dmlt">
               DMLT
             </Link>
-            <Link href="/gda" color="inherit" underline="hover">
+            <Link to="/gda">
               General Duty Assistant
             </Link>
-            <Link href="/hotel-management" color="inherit" underline="hover">
+            <Link to="/hotel-management">
               Hotel Management
             </Link>
-            <Link href="/office-automation" color="inherit" underline="hover">
+            <Link to="/office-automation">
               Office Automation
             </Link>
           </Stack>
