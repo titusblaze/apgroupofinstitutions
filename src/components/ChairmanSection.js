@@ -68,7 +68,7 @@ const ChairmanSection = () => {
               color: "#ddd",
             }}
           >
-            Dr. Ajith Kumar and Dr. Pradeep are shining examples of how
+            They are shining examples of how
             determination and perseverance can elevate individuals from humble
             beginnings to positions of great leadership. Through unwavering hard
             work, dedication, and commitment to a noble cause, they have built a

@@ -20,7 +20,7 @@ import {
   LocationOn,
 } from "@mui/icons-material";
 import { NavLink } from "react-router-dom"; // ✅ for active link styling
-import { Link as RouterLink } from "react-router-dom"; // ✅ alias
+//import { Link as RouterLink } from "react-router-dom"; // ✅ alias
 
 const linkStyle = {
   textDecoration: "none",
@@ -70,7 +70,7 @@ const Footer = () => {
         }}
       />
 
-      <Grid container spacing={5} alignItems="flex-start" justifyContent={"space-between"}
+      <Grid container spacing={3} alignItems="flex-start" justifyContent={"space-between"}
       sx={{width:"100%", padding:'20px'}}>
         {/* ABOUT */}
         <Grid item xs={12} md={3} sx={{width:'300px'}}>

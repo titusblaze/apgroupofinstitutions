@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+
 
 const NewsScroller = () => {
+  const navigate = useNavigate();
   const [hideOffset, setHideOffset] = useState(0);
   const [lastScroll, setLastScroll] = useState(0);
 
@@ -32,6 +35,13 @@ const NewsScroller = () => {
     pr: 5,
     color: "#ffffff",
   };
+  const blinkWhiteRedStyle = {
+  color: "#fff",
+  fontWeight: "bold",
+  animation: "blinkWhiteRed 1s infinite",
+  cursor: "pointer",
+};
+
 
   return (
     <Box
@@ -76,11 +86,34 @@ const NewsScroller = () => {
               transform: "translateX(-50%)",
             },
           },
+           "@keyframes blinkWhiteRed": {
+            "0%": {
+              color: "#ffffff",
+              //textShadow: "0 0 5px #ffffff, 0 0 10px #ff0000",
+            },
+            "50%": {
+              color: "#ff0000",
+             // textShadow: "0 0 10px #ff0000, 0 0 20px #ffffff",
+            },
+            "100%": {
+              color: "#ffffff",
+             // textShadow: "0 0 5px #ffffff, 0 0 10px #ff0000",
+            },
+          },
         }}
       >
         {/* 🔁 Content 1 */}
         <Typography sx={textStyle}>
-          🎓 Admission Open 2026–2027 Batch &nbsp;&nbsp;&nbsp;
+        🎓{" "}
+        <span
+          style={blinkWhiteRedStyle}
+          onClick={() => navigate("/admission")}
+        >
+          <span style={{ animation: "blinkWhiteRed 1s infinite" }}>
+            Admission Open 2026–2027 Batch
+          </span>
+        </span>
+        &nbsp;&nbsp;&nbsp;
           💉 Nursing Courses Available &nbsp;&nbsp;&nbsp;
           🏥 Limited Seats – Apply Now! &nbsp;&nbsp;&nbsp;
           📞 Contact: +91 97512 70576 &nbsp;&nbsp;&nbsp;
@@ -88,7 +121,16 @@ const NewsScroller = () => {
 
         {/* 🔁 Content 2 (duplicate for seamless loop) */}
         <Typography sx={textStyle}>
-          🎓 Admission Open 2026–2027 Batch &nbsp;&nbsp;&nbsp;
+          🎓{" "}
+          <span
+            style={blinkWhiteRedStyle}
+            onClick={() => navigate("/admission")}
+          >
+            <span style={{ animation: "blinkWhiteRed 1s infinite" }}>
+              Admission Open 2026–2027 Batch
+            </span>
+          </span>
+          &nbsp;&nbsp;&nbsp;
           💉 Nursing Courses Available &nbsp;&nbsp;&nbsp;
           🏥 Limited Seats – Apply Now! &nbsp;&nbsp;&nbsp;
           📞 Contact: +91 97512 70576 &nbsp;&nbsp;&nbsp;
