@@ -185,7 +185,7 @@ const Footer = () => {
               General Duty Assistant
             </Link>
 
-            <Link component={NavLink} to="/hotel-management" sx={linkStyle}>
+            <Link component={NavLink} to="/catering" sx={linkStyle}>
               Hotel Management
             </Link>
 
