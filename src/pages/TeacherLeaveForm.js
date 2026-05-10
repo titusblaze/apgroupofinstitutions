@@ -50,7 +50,7 @@ Designation: ${designation}%0A
 Phone: ${phone}%0A
 Reason: ${reason}`;
 
-    const whatsappNumber = "919751270576"; // 👉 your number
+    const whatsappNumber = "919840075091"; // 👉 your number
 
     window.open(
       `https://wa.me/${whatsappNumber}?text=${message}`,

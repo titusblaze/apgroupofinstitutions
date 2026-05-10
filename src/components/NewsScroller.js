@@ -116,7 +116,7 @@ const NewsScroller = () => {
         &nbsp;&nbsp;&nbsp;
           💉 Nursing Courses Available &nbsp;&nbsp;&nbsp;
           🏥 Limited Seats – Apply Now! &nbsp;&nbsp;&nbsp;
-          📞 Contact: +91 97512 70576 &nbsp;&nbsp;&nbsp;
+          📞 Contact: +91 98400 75091 &nbsp;&nbsp;&nbsp;
         </Typography>
 
         {/* 🔁 Content 2 (duplicate for seamless loop) */}
@@ -133,7 +133,7 @@ const NewsScroller = () => {
           &nbsp;&nbsp;&nbsp;
           💉 Nursing Courses Available &nbsp;&nbsp;&nbsp;
           🏥 Limited Seats – Apply Now! &nbsp;&nbsp;&nbsp;
-          📞 Contact: +91 97512 70576 &nbsp;&nbsp;&nbsp;
+          📞 Contact: +91 98400 75091 &nbsp;&nbsp;&nbsp;
         </Typography>
       </Box>
     </Box>

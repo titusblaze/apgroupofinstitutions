@@ -78,7 +78,7 @@ export default function Header() {
             
             {/* EMAIL */}
             <Link
-              href="mailto:info@college.com"
+              href="mailto:apinstitutions@gmail.com"
               underline="none"
               sx={{
                 display: "flex",
@@ -94,12 +94,12 @@ export default function Header() {
               }}
             >
               <EmailIcon fontSize="small" />
-              info@college.com
+              apinstitutions@gmail.com
             </Link>
 
             {/* PHONE */}
             <Link
-              href="tel:9751270576"
+              href="tel:9840075091"
               underline="none"
               sx={{
                 display: "flex",
@@ -115,7 +115,7 @@ export default function Header() {
               }}
             >
               <PhoneIcon fontSize="small" />
-              +91 97512 70576
+              +91 98400 75091
             </Link>
 
           </Box>

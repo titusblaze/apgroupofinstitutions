@@ -132,14 +132,14 @@ const Footer = () => {
           <Stack spacing={1}>
             <Tooltip title="Call Now">
               <Link
-                href="tel:+919751270576"
+                href="tel:+919840075091"
                 underline="none"
                 color="inherit"
               >
                 <Stack direction="row" spacing={1} alignItems="center">
                   <Phone fontSize="small" />
                   <Typography variant="body2">
-                    +91 97512 70576
+                    +91 98400 75091
                   </Typography>
                 </Stack>
               </Link>
@@ -147,14 +147,14 @@ const Footer = () => {
 
             <Tooltip title="Send Email">
               <Link
-                href="mailto:info@apgroup.com"
+                href="mailto:apinstitutions@gmail.com"
                 underline="none"
                 color="inherit"
               >
                 <Stack direction="row" spacing={1} alignItems="center">
                   <Email fontSize="small" />
                   <Typography variant="body2">
-                    info@apgroup.com
+                    apinstitutions@gmail.com
                   </Typography>
                 </Stack>
               </Link>
@@ -254,7 +254,7 @@ const Footer = () => {
 
             {/* WhatsApp */}
             <IconButton
-            href="https://wa.me/919751270576"
+            href="https://wa.me/919840075091"
             target="_blank"
             sx={{
                 color: "#25D366",
@@ -266,7 +266,7 @@ const Footer = () => {
 
             {/* Call (Speed Dial) */}
             <IconButton
-            href="tel:9751270576"
+            href="tel:9840075091"
             sx={{
                 color: "#22c55e",
                 "&:hover": { transform: "scale(1.2)" },

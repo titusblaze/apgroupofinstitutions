@@ -18,44 +18,34 @@ import ShareIcon from "@mui/icons-material/Share";
 // ✅ Static Data (No API)
 const contacts = [
   {
-    name: "Chairman",
-    role: "Head of Institution",
-    phone: "9751270576",
-    email: "apcollege@email.com",
-    address: "Cheranmahadevi, Tirunelveli, Tamil Nadu",
-    location: "https://maps.google.com",
-    image:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef",
-  },
-  {
-    name: "Director",
+    name: "Principal",
     role: "Academic Head",
-    phone: "9751270576",
-    email: "apcollege@email.com",
+    phone: "9840075091",
+    email: "apinstitutions@gmail.com",
     address: "Cheranmahadevi, Tirunelveli, Tamil Nadu",
     location: "https://maps.google.com",
     image:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef",
+      "https://plus.unsplash.com/premium_photo-1683972509783-da5a74795bb3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZSUyMGljb258ZW58MHx8MHx8fDA%3D",
   },
   {
-    name: "Admin Office",
+    name: "Head of Department",
     role: "Main Contact",
-    phone: "9751270576",
-    email: "apcollege@email.com",
+    phone: "9840075092",
+    email: "apinstitution2023@gmail.com",
     address: "Paramakudi, Tamil Nadu",
     location: "https://maps.google.com",
     image:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef",
+      "https://images.unsplash.com/photo-1668903678359-e810dd966016?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGRlcGFydG1lbnQlMjBoZWFkJTIwaWNvbnxlbnwwfHwwfHx8MA%3D%3D",
   },
   {
     name: "Reception Office",
     role: "Student Queries",
-    phone: "9751270576",
-    email: "apcollege@email.com",
+    phone: "9944109891",
+    email: "apnursingunit@gmail.com",
     address: "Cheranmahadevi, Tirunelveli, Tamil Nadu",
     location: "https://maps.google.com",
     image:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef",
+      "https://plus.unsplash.com/premium_photo-1669658981858-b2ae0d7581a3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cmVjZXB0aW9uJTIwY29udGFjdCUyMGljb258ZW58MHx8MHx8fDA%3D",
   },
 ];
 
@@ -63,16 +53,16 @@ const branches = [
   {
     name: "Main Branch",
     desc: "Nursing College Campus",
-    phone: "9751270576",
-    email: "apcollege@email.com",
+    phone: "9840075091",
+    email: "apinstitutions@gmail.com",
     address: "Cheranmahadevi, Tirunelveli, Tamil Nadu",
     location: "https://maps.google.com",
   },
   {
     name: "City Branch",
     desc: "Training Center",
-    phone: "9751270576",
-    email: "apcollege@email.com",
+    phone: "9944109891",
+    email: "apinstitution2023@gmail.com",
     address: "Tisaiyanvelai, Tirunelveli, Tamil Nadu",
     location: "https://maps.google.com",
   },
@@ -98,7 +88,7 @@ Phone: ${formData.mobile}
 Email: ${formData.email}
 Message: ${formData.message}`;
 
-    window.location.href = `mailto:college@email.com?subject=${encodeURIComponent(
+    window.location.href = `mailto:apinstitutions@gmail.com?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`;
   };
@@ -111,7 +101,7 @@ Email: ${formData.email}
 Message: ${formData.message}`;
 
     window.open(
-      `https://wa.me/919751270576?text=${encodeURIComponent(message)}`
+      `https://wa.me/919840075091?text=${encodeURIComponent(message)}`
     );
   };
 

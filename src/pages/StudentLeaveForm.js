@@ -52,7 +52,7 @@ Roll No: ${rollNo}%0A
 Phone: ${phone}%0A
 Reason: ${reason}`;
 
-    const whatsappNumber = "919751270576"; // 👉 Replace with your number
+    const whatsappNumber = "919840075091"; // 👉 Replace with your number
 
     window.open(
       `https://wa.me/${whatsappNumber}?text=${message}`,

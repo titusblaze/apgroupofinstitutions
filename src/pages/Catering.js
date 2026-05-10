@@ -104,7 +104,7 @@ const Catering = () => {
               <Grid item xs={12} sm={6}>
                 <Paper sx={{ p: 2, borderRadius: 3 }}>
                   <Typography fontWeight="bold">Duration</Typography>
-                  <Typography fontSize="14px">1 Year</Typography>
+                  <Typography fontSize="14px">2 Year</Typography>
                 </Paper>
               </Grid>
             </Grid>

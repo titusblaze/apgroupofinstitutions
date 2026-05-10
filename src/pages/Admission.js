@@ -1,6 +1,7 @@
 import { Box, Typography, Button } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Payment from "../components/Payment";
 
 const Admission = () => {
   const navigate = useNavigate();
@@ -225,6 +226,7 @@ const Admission = () => {
 
 </Box>
       </Box>
+      <Payment />
     </Box>
   );
 };
