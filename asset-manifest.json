@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.f32f4997.css",
-    "main.js": "/static/js/main.a9178e60.js",
+    "main.js": "/static/js/main.c9b30276.js",
     "static/media/about-banner.jpg": "/static/media/about-banner.a340184f80d92d2b6ecb.jpg",
     "static/media/logo512.png": "/static/media/logo512.8aa5894d3ef92783bbf1.png",
     "static/media/chairman2.jpg": "/static/media/chairman2.1c197ceacccdf95cf1e3.jpg",
     "static/media/chairman1.jpg": "/static/media/chairman1.052a4f2b61f4a5038641.jpg",
     "index.html": "/index.html",
     "main.f32f4997.css.map": "/static/css/main.f32f4997.css.map",
-    "main.a9178e60.js.map": "/static/js/main.a9178e60.js.map"
+    "main.c9b30276.js.map": "/static/js/main.c9b30276.js.map"
   },
   "entrypoints": [
     "static/css/main.f32f4997.css",
-    "static/js/main.a9178e60.js"
+    "static/js/main.c9b30276.js"
   ]
 }
