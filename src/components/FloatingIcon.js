@@ -93,14 +93,14 @@ const FloatingIcon = () => {
           <SpeedDialAction
             icon={<PhoneIcon />}
             tooltipTitle="Call"
-            onClick={() => (window.location.href = "tel:9751270576")}
+            onClick={() => (window.location.href = "tel:9840075091")}
           />
 
           <SpeedDialAction
             icon={<WhatsAppIcon />}
             tooltipTitle="WhatsApp"
             onClick={() =>
-              window.open("https://wa.me/919751270576", "_blank")
+              window.open("https://wa.me/919840075091", "_blank")
             }
           />
 
@@ -108,7 +108,7 @@ const FloatingIcon = () => {
             icon={<EmailIcon />}
             tooltipTitle="Email"
             onClick={() =>
-              (window.location.href = "mailto:info@apgroup.com")
+              (window.location.href = "mailto:apinstitutions@gmail.com")
             }
           />
         </SpeedDial>
