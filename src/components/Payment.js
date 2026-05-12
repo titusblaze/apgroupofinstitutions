@@ -1,6 +1,12 @@
-// Payment.js
+// =========================================
+// IMPORT
+// =========================================
 
-import React, { useEffect, useRef } from "react";
+import React, {
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import {
   Box,
@@ -10,6 +16,7 @@ import {
   IconButton,
   Stack,
   Typography,
+  TextField,
 } from "@mui/material";
 
 import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
@@ -20,6 +27,10 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 
 import QRCodeStyling from "qr-code-styling";
 
+// =========================================
+// COMPONENT
+// =========================================
+
 const Payment = () => {
   // =========================================
   // DETAILS
@@ -27,9 +38,24 @@ const Payment = () => {
 
   const upiId = "apinstitution@indianbk";
 
-  const amount = "1000";
-
   const whatsappNumber = "919840075091";
+
+  // =========================================
+  // STATES
+  // =========================================
+
+  const [amount, setAmount] = useState("");
+
+  const [generatedAmount, setGeneratedAmount] =
+    useState("");
+
+  // =========================================
+  // REFS
+  // =========================================
+
+  const qrRef = useRef(null);
+
+  const qrSectionRef = useRef(null);
 
   // =========================================
   // UPI LINK
@@ -38,15 +64,22 @@ const Payment = () => {
   const upiLink =
     `upi://pay?pa=${upiId}` +
     `&pn=${encodeURIComponent("AP Institutions")}` +
-    `&am=${amount}` +
+    `&am=${generatedAmount || 0}` +
     `&cu=INR` +
-    `&tn=${encodeURIComponent("Admission Fee Payment")}`;
+    `&tn=${encodeURIComponent(
+      "Payment Fees Payment"
+    )}`;
 
   // =========================================
   // OPEN UPI APP
   // =========================================
 
   const openUPI = () => {
+    if (!generatedAmount) {
+      alert("Please Enter Amount & Create QR Code");
+      return;
+    }
+
     window.location.href = upiLink;
 
     setTimeout(() => {
@@ -72,7 +105,7 @@ const Payment = () => {
 
   const openWhatsApp = () => {
     const text =
-      "Hello AP Institutions,%0A%0AI completed the admission fee payment.%0APlease verify my payment screenshot.";
+      "Hello AP Institutions,%0A%0AI completed the payment.%0APlease verify my payment screenshot.";
 
     window.open(
       `https://wa.me/${whatsappNumber}?text=${text}`,
@@ -81,10 +114,32 @@ const Payment = () => {
   };
 
   // =========================================
-  // QR GENERATOR
+  // CREATE QR
   // =========================================
 
-  const qrRef = useRef(null);
+  const createQRCode = () => {
+    if (!amount || Number(amount) <= 0) {
+      alert("Please Enter Valid Amount");
+      return;
+    }
+
+    setGeneratedAmount(amount);
+
+    // =========================================
+    // AUTO SCROLL TO QR
+    // =========================================
+
+    setTimeout(() => {
+      qrSectionRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }, 300);
+  };
+
+  // =========================================
+  // QR GENERATOR
+  // =========================================
 
   useEffect(() => {
     const qrCode = new QRCodeStyling({
@@ -128,22 +183,12 @@ const Payment = () => {
           colorStops: [
             {
               offset: 0,
-              color: "#22c55e",
-            },
-
-            {
-              offset: 0.4,
-              color: "#00D4FF",
-            },
-
-            {
-              offset: 0.75,
-              color: "#2563eb",
+              color: "#9333ea",
             },
 
             {
               offset: 1,
-              color: "#9333ea",
+              color: "#2563eb",
             },
           ],
         },
@@ -160,12 +205,12 @@ const Payment = () => {
           colorStops: [
             {
               offset: 0,
-              color: "#34d399",
+              color: "#9333ea",
             },
 
             {
               offset: 1,
-              color: "#0ea5e9",
+              color: "#00D4FF",
             },
           ],
         },
@@ -174,7 +219,7 @@ const Payment = () => {
       cornersDotOptions: {
         type: "dot",
 
-        color: "#00D4FF",
+        color: "#38bdf8",
       },
     });
 
@@ -189,7 +234,7 @@ const Payment = () => {
     <Box
       sx={{
         minHeight: "100vh",
-        
+
         background:
           "radial-gradient(circle at top, #071120 0%, #020617 70%)",
 
@@ -210,7 +255,7 @@ const Payment = () => {
         },
       }}
     >
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         <Box
           sx={{
             position: "relative",
@@ -218,8 +263,8 @@ const Payment = () => {
             overflow: "hidden",
 
             borderRadius: {
-              xs: "30px",
-              md: "42px",
+              xs: "28px",
+              md: "40px",
             },
 
             border:
@@ -228,17 +273,16 @@ const Payment = () => {
             background:
               "linear-gradient(180deg, rgba(5,15,35,0.98), rgba(2,8,20,0.98))",
 
-            boxShadow:
-              `
-              0 0 100px rgba(0,212,255,0.08),
-              0 0 80px rgba(168,85,247,0.08),
-              inset 0 1px 0 rgba(255,255,255,0.08)
-              `,
+            boxShadow: `
+              0 0 80px rgba(0,212,255,0.06),
+              0 0 70px rgba(168,85,247,0.06),
+              inset 0 1px 0 rgba(255,255,255,0.06)
+            `,
 
             p: {
-             // xs: 2,
+              xs: 2,
               sm: 3,
-              md: 5,
+              md: 4,
             },
 
             display: "flex",
@@ -250,7 +294,7 @@ const Payment = () => {
 
             gap: {
               xs: 3,
-              md: 5,
+              md: 4,
             },
           }}
         >
@@ -262,7 +306,7 @@ const Payment = () => {
             sx={{
               width: {
                 xs: "100%",
-                md: "42%",
+                md: "45%",
               },
 
               display: "flex",
@@ -270,18 +314,15 @@ const Payment = () => {
               justifyContent: "center",
             }}
           >
+            {/* QR CARD */}
+
             <Box
+              ref={qrSectionRef}
               onClick={openUPI}
               sx={{
                 width: "100%",
 
-                maxWidth: {
-                  xs: "100%",
-                  sm: 420,
-                  md: 470,
-                },
-
-                borderRadius: "34px",
+                borderRadius: "30px",
 
                 cursor: "pointer",
 
@@ -295,20 +336,18 @@ const Payment = () => {
                 overflow: "hidden",
 
                 background:
-                  "linear-gradient(180deg, rgba(5,15,35,0.96), rgba(2,8,20,0.96))",
+                  "linear-gradient(180deg, rgba(8,20,40,0.98), rgba(2,8,20,0.98))",
 
                 border:
                   "1px solid rgba(255,255,255,0.08)",
 
-                boxShadow:
-                  `
-                  inset 0 1px 0 rgba(255,255,255,0.08),
-                  0 0 45px rgba(0,212,255,0.12),
-                  0 0 90px rgba(168,85,247,0.08)
-                  `,
+                boxShadow: `
+                  inset 0 1px 0 rgba(255,255,255,0.06),
+                  0 0 40px rgba(0,212,255,0.08)
+                `,
               }}
             >
-              {/* QR SECTION */}
+              {/* QR */}
 
               <Box
                 sx={{
@@ -325,28 +364,26 @@ const Payment = () => {
                   mb: 3,
                 }}
               >
-                {/* OUTER GLOW */}
-
                 <Box
                   sx={{
                     position: "absolute",
 
                     width: {
-                      xs: 260,
-                      sm: 340,
-                      md: 430,
+                      xs: 240,
+                      sm: 320,
+                      md: 360,
                     },
 
                     height: {
-                      xs: 260,
-                      sm: 340,
-                      md: 430,
+                      xs: 240,
+                      sm: 320,
+                      md: 360,
                     },
 
                     borderRadius: "50%",
 
                     background:
-                      "radial-gradient(circle, rgba(0,212,255,0.22), rgba(168,85,247,0.15), transparent 72%)",
+                      "radial-gradient(circle, rgba(147,51,234,0.20), rgba(37,99,235,0.15), transparent 75%)",
 
                     filter: "blur(50px)",
 
@@ -354,28 +391,23 @@ const Payment = () => {
                   }}
                 />
 
-                {/* QR CARD */}
-
                 <Box
                   sx={{
                     position: "relative",
 
                     width: {
                       xs: 250,
-                      sm: 330,
-                      md: 410,
+                      sm: 320,
+                      md: 360,
                     },
 
                     height: {
                       xs: 250,
-                      sm: 330,
-                      md: 410,
+                      sm: 320,
+                      md: 360,
                     },
 
-                    borderRadius: {
-                      xs: "24px",
-                      md: "34px",
-                    },
+                    borderRadius: "28px",
 
                     overflow: "hidden",
 
@@ -391,17 +423,12 @@ const Payment = () => {
 
                     alignItems: "center",
 
-                    p: {
-                      xs: 1.8,
-                      md: 2.5,
-                    },
+                    p: 2,
 
-                    boxShadow:
-                      `
+                    boxShadow: `
                       inset 0 1px 0 rgba(255,255,255,0.06),
-                      0 0 40px rgba(0,212,255,0.16),
-                      0 0 80px rgba(168,85,247,0.12)
-                      `,
+                      0 0 40px rgba(0,212,255,0.12)
+                    `,
                   }}
                 >
                   {/* QR */}
@@ -424,7 +451,6 @@ const Payment = () => {
                       "& canvas": {
                         width: "100% !important",
                         height: "100% !important",
-                        background: "transparent !important",
                       },
 
                       "& svg": {
@@ -449,23 +475,21 @@ const Payment = () => {
                       height: "180%",
 
                       background:
-                        "linear-gradient(90deg, transparent, rgba(255,255,255,0.16), transparent)",
+                        "linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent)",
 
                       transform: "rotate(25deg)",
 
                       zIndex: 9,
-
-                      pointerEvents: "none",
                     }}
                   />
                 </Box>
               </Box>
 
-              {/* TAP TEXT */}
+              {/* TEXT */}
 
               <Stack
                 direction="row"
-                spacing={1.2}
+                spacing={1}
                 justifyContent="center"
                 alignItems="center"
                 sx={{
@@ -474,16 +498,12 @@ const Payment = () => {
               >
                 <QrCodeScannerRoundedIcon
                   sx={{
-                    fontSize: {
-                      xs: 28,
-                      md: 34,
-                    },
+                    fontSize: 30,
 
                     background:
-                      "linear-gradient(90deg,#22c55e,#00D4FF,#9333ea)",
+                      "linear-gradient(90deg,#9333ea,#38bdf8)",
 
-                    WebkitBackgroundClip:
-                      "text",
+                    WebkitBackgroundClip: "text",
 
                     WebkitTextFillColor:
                       "transparent",
@@ -497,12 +517,12 @@ const Payment = () => {
                     fontWeight: 600,
 
                     fontSize: {
-                      xs: "18px",
-                      md: "24px",
+                      xs: "17px",
+                      md: "22px",
                     },
                   }}
                 >
-                  Tap / Scan QR to Pay
+                  Scan or Tap To Pay
                 </Typography>
               </Stack>
 
@@ -514,7 +534,9 @@ const Payment = () => {
 
                   mb: 1,
 
-                  fontSize: "16px",
+                  fontSize: "14px",
+
+                  letterSpacing: 1,
                 }}
               >
                 UPI ID
@@ -526,7 +548,7 @@ const Payment = () => {
 
                   alignItems: "center",
 
-                  borderRadius: "18px",
+                  borderRadius: "16px",
 
                   overflow: "hidden",
 
@@ -541,9 +563,9 @@ const Payment = () => {
                   sx={{
                     flex: 1,
 
-                    px: 2.5,
+                    px: 2,
 
-                    py: 2,
+                    py: 1.8,
                   }}
                 >
                   <Typography
@@ -555,8 +577,8 @@ const Payment = () => {
                       wordBreak: "break-all",
 
                       fontSize: {
-                        xs: "15px",
-                        md: "20px",
+                        xs: "14px",
+                        md: "18px",
                       },
                     }}
                   >
@@ -567,9 +589,9 @@ const Payment = () => {
                 <IconButton
                   onClick={copyUPI}
                   sx={{
-                    px: 2.5,
-
                     color: "#38bdf8",
+
+                    mr: 1,
                   }}
                 >
                   <ContentCopyRoundedIcon />
@@ -590,20 +612,31 @@ const Payment = () => {
               },
 
               borderColor:
-                "rgba(255,255,255,0.08)",
+                "rgba(255,255,255,0.06)",
             }}
           />
 
+          {/* ========================================= */}
           {/* RIGHT */}
+          {/* ========================================= */}
 
           <Box
             sx={{
               flex: 1,
 
               width: "100%",
+
+              display: "flex",
+
+              alignItems: "center",
             }}
           >
-            <Stack spacing={4}>
+            <Stack
+              spacing={4}
+              sx={{
+                width: "100%",
+              }}
+            >
               {/* HEADER */}
 
               <Stack
@@ -613,17 +646,11 @@ const Payment = () => {
               >
                 <Box
                   sx={{
-                    width: {
-                      xs: 60,
-                      md: 80,
-                    },
+                    width: 70,
 
-                    height: {
-                      xs: 60,
-                      md: 80,
-                    },
+                    height: 70,
 
-                    borderRadius: "50%",
+                    borderRadius: "24px",
 
                     background:
                       "linear-gradient(135deg,#9333ea,#38bdf8)",
@@ -633,13 +660,16 @@ const Payment = () => {
                     justifyContent: "center",
 
                     alignItems: "center",
+
+                    boxShadow:
+                      "0 0 30px rgba(147,51,234,0.35)",
                   }}
                 >
                   <SchoolRoundedIcon
                     sx={{
                       color: "#fff",
 
-                      fontSize: 36,
+                      fontSize: 38,
                     }}
                   />
                 </Box>
@@ -647,11 +677,11 @@ const Payment = () => {
                 <Box>
                   <Typography
                     sx={{
-                      fontWeight: "bold",
+                      fontWeight: 700,
 
                       fontSize: {
                         xs: "34px",
-                        md: "58px",
+                        md: "50px",
                       },
 
                       lineHeight: 1.1,
@@ -666,7 +696,7 @@ const Payment = () => {
                         "transparent",
                     }}
                   >
-                    Admission Fee
+                    Payment Fees
                   </Typography>
 
                   <Typography
@@ -675,7 +705,7 @@ const Payment = () => {
 
                       fontSize: {
                         xs: "15px",
-                        md: "20px",
+                        md: "18px",
                       },
                     }}
                   >
@@ -684,7 +714,7 @@ const Payment = () => {
                 </Box>
               </Stack>
 
-              {/* AMOUNT */}
+              {/* FORM */}
 
               <Box
                 sx={{
@@ -703,37 +733,141 @@ const Payment = () => {
 
                     letterSpacing: 3,
 
-                    mb: 1,
+                    mb: 2.5,
 
-                    fontSize: "16px",
+                    fontSize: "15px",
                   }}
                 >
-                  AMOUNT TO PAY
+                  PAY AMOUNT
                 </Typography>
 
-                <Typography
+                {/* INPUT */}
+
+                <TextField
+                  fullWidth
+                  type="number"
+                  placeholder="Enter Amount"
+                  value={amount}
+                  onChange={(e) =>
+                    setAmount(e.target.value)
+                  }
+                  InputProps={{
+                    sx: {
+                      height: 72,
+
+                      borderRadius: "20px",
+
+                      color: "#fff",
+
+                      fontSize: "34px",
+
+                      fontWeight: 700,
+
+                      px: 1,
+
+                      background:
+                        "linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))",
+                    },
+                  }}
                   sx={{
-                    fontWeight: "bold",
+                    mb: 3,
 
-                    lineHeight: 1,
+                    "& .MuiOutlinedInput-root": {
+                      "& fieldset": {
+                        borderColor:
+                          "rgba(255,255,255,0.12)",
+                      },
 
-                    fontSize: {
-                      xs: "58px",
-                      md: "95px",
+                      "&:hover fieldset": {
+                        borderColor: "#38bdf8",
+                      },
+
+                      "&.Mui-focused fieldset":
+                        {
+                          borderColor: "#9333ea",
+                          borderWidth: "2px",
+                        },
                     },
 
+                    input: {
+                      color: "#fff",
+                    },
+
+                    "& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button":
+                      {
+                        WebkitAppearance: "none",
+                        margin: 0,
+                      },
+                  }}
+                />
+
+                {/* BUTTON */}
+
+                <Button
+                  fullWidth
+                  onClick={createQRCode}
+                  sx={{
+                    height: 66,
+
+                    borderRadius: "22px",
+
                     background:
-                      "linear-gradient(90deg,#d946ef,#2563eb)",
+                      "linear-gradient(90deg,#9333ea,#2563eb)",
 
-                    WebkitBackgroundClip:
-                      "text",
+                    color: "#fff",
 
-                    WebkitTextFillColor:
-                      "transparent",
+                    fontWeight: 700,
+
+                    fontSize: {
+                      xs: "17px",
+                      md: "20px",
+                    },
+
+                    textTransform: "none",
+
+                    boxShadow:
+                      "0 10px 30px rgba(37,99,235,0.35)",
+
+                    "&:hover": {
+                      background:
+                        "linear-gradient(90deg,#7e22ce,#1d4ed8)",
+                    },
                   }}
                 >
-                  ₹{amount}
-                </Typography>
+                  Create QR Code
+                </Button>
+
+                {/* AMOUNT */}
+
+                {generatedAmount && (
+                  <Typography
+                    sx={{
+                      mt: 4,
+
+                      textAlign: "center",
+
+                      fontWeight: 800,
+
+                      lineHeight: 1,
+
+                      fontSize: {
+                        xs: "58px",
+                        md: "88px",
+                      },
+
+                      background:
+                        "linear-gradient(90deg,#a855f7,#2563eb)",
+
+                      WebkitBackgroundClip:
+                        "text",
+
+                      WebkitTextFillColor:
+                        "transparent",
+                    }}
+                  >
+                    ₹{generatedAmount}
+                  </Typography>
+                )}
               </Box>
 
               {/* WHATSAPP */}
@@ -751,14 +885,17 @@ const Payment = () => {
 
                   color: "#fff",
 
-                  fontWeight: "bold",
+                  fontWeight: 700,
 
                   fontSize: {
                     xs: "15px",
-                    md: "20px",
+                    md: "18px",
                   },
 
                   textTransform: "none",
+
+                  boxShadow:
+                    "0 10px 30px rgba(34,197,94,0.25)",
 
                   "&:hover": {
                     background:
@@ -803,7 +940,7 @@ const Payment = () => {
 
                     fontSize: {
                       xs: "14px",
-                      md: "17px",
+                      md: "16px",
                     },
                   }}
                 >
@@ -812,12 +949,12 @@ const Payment = () => {
                   <span
                     style={{
                       color: "#22c55e",
-                      fontWeight: 600,
+                      fontWeight: 700,
                     }}
                   >
                     WhatsApp
                   </span>{" "}
-                  for admission confirmation.
+                  for payment confirmation.
                 </Typography>
               </Stack>
             </Stack>
