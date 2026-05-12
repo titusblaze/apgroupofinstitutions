@@ -25,7 +25,7 @@ const Payment = () => {
   // DETAILS
   // =========================================
 
-  const upiId = "apinstitutions@okaxis";
+  const upiId = "apinstitution@indianbk";
 
   const amount = "1000";
 
